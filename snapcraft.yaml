@@ -1,0 +1,46 @@
+name: quadrapassel
+adopt-info: quadrapassel
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict
+base: core20
+
+slots:
+  # for GtkApplication registration
+  quadrapassel:
+    interface: dbus
+    bus: session
+    name: org.gnome.Quadrapassel
+
+apps:
+  quadrapassel:
+    command: usr/bin/quadrapassel
+    extensions: [gnome-3-38]
+    plugs:
+      - gsettings
+      - audio-playback
+    desktop: usr/share/applications/org.gnome.Quadrapassel.desktop
+    common-id: org.gnome.Quadrapassel.desktop
+    environment:
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/quadrapassel
+
+parts:
+  quadrapassel:
+    source: https://gitlab.gnome.org/GNOME/quadrapassel.git
+    source-type: git
+    plugin: meson
+    meson-parameters: [--prefix=/usr]
+    parse-info: [usr/share/metainfo/org.gnome.Quadrapassel.appdata.xml]
+    organize:
+      snap/quadrapassel/current/usr: usr
+    build-packages:
+      - libmanette-0.2-dev
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git describe --tags --abbrev=10)
+
+  libraries:
+    plugin: nil
+    stage-packages:
+      - libmanette-0.2-0
+    prime:
+      - usr/lib/*/libmanette*

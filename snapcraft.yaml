@@ -37,6 +37,9 @@ parts:
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version $(git describe --tags --abbrev=10)
+    override-build: |
+      sed -i.bak -e 's|symlink_media: true|symlink_media: false|g' $SNAPCRAFT_PART_SRC/help/meson.build
+      snapcraftctl build
 
   libraries:
     plugin: nil

@@ -26,7 +26,7 @@ parts:
     source: https://gitlab.gnome.org/GNOME/quadrapassel.git
     source-type: git
     plugin: meson
-    meson-parameters: [--prefix=/usr]
+    meson-parameters: [--prefix=/snap/quadrapassel/current/usr]
     parse-info: [usr/share/metainfo/org.gnome.Quadrapassel.appdata.xml]
     organize:
       snap/quadrapassel/current/usr: usr

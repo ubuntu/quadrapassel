@@ -4,6 +4,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
 base: core20
 
+layout:
+  /usr/share/quadrapassel:
+    bind: $SNAP/usr/share/quadrapassel
+
 slots:
   # for GtkApplication registration
   quadrapassel:

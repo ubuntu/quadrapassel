@@ -19,6 +19,8 @@ apps:
       - audio-playback
     desktop: usr/share/applications/org.gnome.Quadrapassel.desktop
     common-id: org.gnome.Quadrapassel.desktop
+    environment:
+      DISABLE_WAYLAND: 'true'
 
 parts:
   quadrapassel:

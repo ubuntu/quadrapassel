@@ -16,7 +16,6 @@ apps:
     command: usr/bin/quadrapassel
     extensions: [gnome-3-38]
     plugs:
-      - gsettings
       - audio-playback
     desktop: usr/share/applications/org.gnome.Quadrapassel.desktop
     common-id: org.gnome.Quadrapassel.desktop

@@ -28,9 +28,11 @@ apps:
 
 parts:
   quadrapassel:
+# ext:updatesnap
     source: https://gitlab.gnome.org/GNOME/quadrapassel.git
     source-type: git
     source-tag: '40.2'
+    source-depth: 1
     plugin: meson
     meson-parameters:
       - --prefix=/usr

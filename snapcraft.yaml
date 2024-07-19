@@ -1,8 +1,9 @@
 name: quadrapassel
 adopt-info: quadrapassel
+license: GPL-3.0+
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
-base: core22
+base: core24
 
 layout:
   /usr/share/quadrapassel:
